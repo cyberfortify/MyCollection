@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shirt Details | My Collection</title>
+  <meta name="theme-color" content="#FFFFFF" />
+  <link rel="icon" href="logo.jpg" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="nav scrolled">
+    <div class="container nav__inner">
+      <a href="index.html" class="back">← Back</a>
+      <a href="index.html" class="brand"><img src="logo.jpg" alt="logo" /></a>
+    </div>
+  </header>
+
+  <main class="container pdp" id="pdp"></main>
+
+  <section class="container checkout" id="checkout" hidden>
+    <h2>Place <span class="gold">Order</span></h2>
+    <div class="summary" id="summary"></div>
+    <form id="orderForm" novalidate>
+      <input name="name" placeholder="Full Name" required />
+      <input name="phone" type="tel" inputmode="numeric" placeholder="WhatsApp / Mobile Number" required />
+      <textarea name="address" rows="3" placeholder="Full Address" required></textarea>
+      <div class="row">
+        <input name="city" placeholder="City" required />
+        <input name="pin" inputmode="numeric" placeholder="Pincode" required />
+      </div>
+      <p class="label">Payment Method</p>
+      <label class="pay"><input type="radio" name="pay" value="UPI" checked /><span>UPI (GPay / PhonePe / Paytm)</span></label>
+      <label class="pay"><input type="radio" name="pay" value="COD" /><span>Cash on Delivery</span></label>
+      <p class="err" id="err"></p>
+      <button class="btn btn--wine btn--full" type="submit">Confirm Order</button>
+    </form>
+    <div class="success" id="success" hidden></div>
+  </section>
+
+  <a class="wa-float" id="wa" target="_blank" rel="noopener" aria-label="WhatsApp"></a>
+  <script src="data.js"></script>
+  <script src="product.js"></script>
+</body>
+</html>

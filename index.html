@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Collection | Men's Shirts</title>
+    <meta name="theme-color" content="#FFFFFF" />
+    <link rel="icon" href="logo.jpg" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,500&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="nav">
+      <div class="container nav__inner">
+        <a href="index.html" class="brand"
+          ><img src="logo.jpg" alt="logo" /><span>My <b>Collection</b></span></a
+        >
+        <a href="#shirts" class="btn btn--sm">Shop Now</a>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="container hero__inner">
+        <div class="hero__visual">
+          <div class="hero__blob"></div>
+          <img src="logo.jpg" alt="My Collection" class="hero__logo" />
+        </div>
+        <div class="hero__text">
+          <p class="eyebrow">Men's Fashion</p>
+          <h1>Your Style,<br /><span class="gold">Our Identity.</span></h1>
+          <p class="sub">
+            Premium shirts. Apna size aur color chuno, aur seedha order karo.
+          </p>
+          <div class="hero__cta">
+            <a href="#shirts" class="btn btn--wine">Explore Shirts</a>
+            <a href="#reviews" class="btn btn--ghost">Customer Reviews</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="shirts">
+      <div class="container">
+        <div class="head">
+          <p class="eyebrow">The Collection</p>
+          <h2>Our <span class="gold">Shirts</span></h2>
+        </div>
+        <div class="grid" id="grid"></div>
+        <div class="more">
+          <button class="btn btn--ghost" id="moreBtn">See More</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section section--cream" id="reviews">
+      <div class="container">
+        <div class="head">
+          <p class="eyebrow">Testimonials</p>
+          <h2>Loved by our <span class="gold">customers</span></h2>
+        </div>
+        <div class="reviews" id="reviewList"></div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container footer__grid">
+        <div class="footer__brand">
+          <img src="logo.jpg" alt="logo" />
+          <p class="footer__tag">Your Style, Our Identity.</p>
+          <p class="footer__about">
+            Elevate Your Style with Premium Men's Shirts. Shop Now, Message Us on WhatsApp!
+          </p>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <a href="#" id="fWa" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="#" id="fPhone"></a>
+          <a href="#" id="fMail"></a>
+          <a href="#" id="fInsta" target="_blank" rel="noopener">Instagram</a>
+        </div>
+        <div>
+          <h4>We Accept</h4>
+          <div class="pay-badges">
+            <span>UPI</span><span>Cards</span><span>COD</span>
+          </div>
+          <p class="footer__note">Safe packaging · Fast dispatch</p>
+        </div>
+      </div>
+      <div class="footer__bar">
+        <div class="container">
+          © <span id="year"></span> My Collection. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <a
+      class="wa-float"
+      id="wa"
+      target="_blank"
+      rel="noopener"
+      aria-label="WhatsApp"
+    ></a>
+
+    <script src="data.js"></script>
+    <script src="home.js"></script>
+  </body>
+</html>
