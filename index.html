@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Collection | Men's Shirts</title>
     <meta name="theme-color" content="#FFFFFF" />
-    <link rel="icon" href="logo.png" />
+    <link rel="icon" href="logo.jpg" />
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,500&family=Poppins:wght@300;400;500;600&display=swap"
       rel="stylesheet"
@@ -13,12 +13,54 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header class="nav">
+    <header class="nav" id="nav">
       <div class="container nav__inner">
-        <a href="index.html" class="brand"
-          ><img src="logo.png" alt="logo" /><span>My <b>Collection</b></span></a
-        >
-        <a href="#shirts" class="btn btn--sm">Shop Now</a>
+        <a href="index.html" class="brand">
+          <img src="logo.jpg" alt="My Collection logo" />
+          <span>My <b>Collection</b></span>
+        </a>
+
+        <div class="nav__icons">
+          <!-- Shop icon -->
+          <a
+            href="#shirts"
+            class="icon-btn"
+            aria-label="Shop shirts"
+            title="Shop shirts"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M6 7h12l1 13H5L6 7z" />
+              <path d="M9 7V6a3 3 0 0 1 6 0v1" />
+            </svg>
+          </a>
+
+          <!-- Account icon (abhi band) -->
+          <button
+            class="icon-btn"
+            disabled
+            aria-label="Account (coming soon)"
+            title="Account: coming soon"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="8" r="4" />
+              <path d="M4 21c0-4 3.6-7 8-7s8 3 8 7" />
+            </svg>
+          </button>
+        </div>
       </div>
     </header>
 
@@ -26,13 +68,14 @@
       <div class="container hero__inner">
         <div class="hero__visual">
           <div class="hero__blob"></div>
-          <img src="logo.png" alt="My Collection" class="hero__logo" />
+          <img src="logo.jpg" alt="My Collection" class="hero__logo" />
         </div>
         <div class="hero__text">
           <p class="eyebrow">Men's Fashion</p>
           <h1>Your Style,<br /><span class="gold">Our Identity.</span></h1>
           <p class="sub">
-            Premium shirts. Apna size aur color chuno, aur seedha order karo.
+            Discover premium shirts crafted for your style. Choose your fit,
+            pick your color, and order with ease.
           </p>
           <div class="hero__cta">
             <a href="#shirts" class="btn btn--wine">Explore Shirts</a>
@@ -61,8 +104,18 @@
         <div class="head">
           <p class="eyebrow">Testimonials</p>
           <h2>Loved by our <span class="gold">customers</span></h2>
+          <div class="rating-sum" id="ratingSum"></div>
         </div>
         <div class="reviews" id="reviewList"></div>
+        <div class="more">
+          <a
+            class="btn btn--ghost"
+            id="reviewCta"
+            target="_blank"
+            rel="noopener"
+            >Share your review on WhatsApp</a
+          >
+        </div>
       </div>
     </section>
 
@@ -70,10 +123,11 @@
     <footer class="footer">
       <div class="container footer__grid">
         <div class="footer__brand">
-          <img src="logo.png" alt="logo" />
+          <img src="logo.jpg" alt="logo" />
           <p class="footer__tag">Your Style, Our Identity.</p>
           <p class="footer__about">
-            Elevate Your Style with Premium Men's Shirts. Shop Now, Message Us on WhatsApp!
+            Elevate Your Style with Premium Men's Shirts. Shop Now, Message Us
+            on WhatsApp!
           </p>
         </div>
         <div>

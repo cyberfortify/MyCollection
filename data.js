@@ -114,9 +114,15 @@ const PRODUCTS = [
 
 /* ⚠️ Ye sample reviews hain. Launch se pehle apne asli customers ke reviews daalo. */
 const TESTIMONIALS = [
-  { name: "Rahul S.", city: "Pune", stars: 5, text: "Fabric bahut soft hai aur fitting ekdam perfect. WhatsApp par order karna bahut easy tha." },
-  { name: "Aman K.", city: "Mumbai", stars: 5, text: "Photo jaisa hi shirt mila. Delivery fast thi aur packing bhi premium." },
-  { name: "Siddharth P.", city: "Nashik", stars: 4, text: "Price ke hisaab se quality kaafi achhi hai. Friends ko bhi recommend kiya." }
+  { name: "Rahul S.", city: "Pune", stars: 5, shirt: "Classic Formal Shirt",
+    photo: "images/reviews/rahul.jpg", verified: true,
+    text: "Fabric bahut soft hai aur fitting ekdam perfect." },
+  { name: "Aman K.", city: "Mumbai", stars: 5, shirt: "Slim Fit Casual Shirt",
+    photo: "", verified: true,
+    text: "Photo jaisa hi shirt mila. Delivery fast thi." },
+  { name: "Siddharth P.", city: "Nashik", stars: 4, shirt: "",
+    photo: "", verified: false,
+    text: "Price ke hisaab se quality kaafi achhi hai." }
 ];
 
 /* Photo load na ho to shirt ki drawing dikhao */
