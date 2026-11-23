@@ -13,53 +13,109 @@ const SIZES = ["M", "L", "XL", "2XL"];
 
 const COLORS = [
   { name: "Midnight Black", hex: "#1a1a1a" },
-  { name: "Ivory White",    hex: "#F2EEE3" },
-  { name: "Navy Blue",      hex: "#1B2A49" },
-  { name: "Olive Green",    hex: "#556B2F" }
+  { name: "Ivory White", hex: "#F2EEE3" },
+  { name: "Navy Blue", hex: "#1B2A49" },
+  { name: "Olive Green", hex: "#556B2F" }
 ];
 
 /* images: apni photos ke naam yahan likho (pehli photo listing me dikhegi)
    colorImages (optional): kisi color ki alag photo ho to
    colorImages: { "Navy Blue": "images/shirt-1-navy.jpg" } */
 const PRODUCTS = [
-  { id: "MC-001", name: "Classic Formal Shirt", price: 1, old: 1299, tag: "Best Seller",
-    images: ["images/shirt-1.jpg", "images/shirt-1b.jpg"],
+  {
+    id: "MC-001", name: "Classic Formal Shirt", price: 1, old: 1299, tag: "Best Seller",
+    variants: {
+      "Midnight Black": ["images/shirt-1.jpg"],
+      "Ivory White": ["images/shirt-2.jpg"],
+      "Navy Blue": ["images/shirt-3.jpg"],
+      "Olive Green": ["images/shirt-4.jpg"]
+    },
     desc: "Daily office aur formal events ke liye sharp aur comfortable shirt.",
-    info: ["Premium cotton fabric", "Regular fit", "Full sleeve", "Machine washable"] },
-  { id: "MC-002", name: "Slim Fit Casual Shirt", price: 799, old: 1099, tag: "New",
-    images: ["images/shirt-2.jpg"],
+    info: ["Premium cotton fabric", "Regular fit", "Full sleeve", "Machine washable"]
+  },
+  {
+    id: "MC-002", name: "Slim Fit Casual Shirt", price: 799, old: 1099, tag: "New",
+    variants: {
+      "Midnight Black": ["images/shirt-2.jpg"],
+      "Ivory White": ["images/shirt-5.jpg"],
+      "Navy Blue": ["images/shirt-3.jpg"],
+      "Olive Green": ["images/shirt-4.jpg"]
+    },
     desc: "Casual outings ke liye slim fit shirt, soft aur breathable.",
-    info: ["Cotton blend fabric", "Slim fit", "Full sleeve", "Easy to iron"] },
-  { id: "MC-003", name: "Premium Cotton Shirt", price: 999, old: 1499, tag: "Premium",
-    images: ["images/shirt-3.jpg"],
+    info: ["Cotton blend fabric", "Slim fit", "Full sleeve", "Easy to iron"]
+  },
+  {
+    id: "MC-003", name: "Premium Cotton Shirt", price: 999, old: 1499, tag: "Premium",
+    variants: {
+      "Midnight Black": ["images/shirt-3.jpg"],
+      "Ivory White": ["images/shirt-5.jpg"],
+      "Navy Blue": ["images/shirt-1.jpg"],
+      "Olive Green": ["images/shirt-2.jpg"]
+    },
     desc: "Extra soft premium cotton, har wash ke baad fresh.",
-    info: ["100% premium cotton", "Regular fit", "Full sleeve", "Low shrinkage"] },
-  { id: "MC-004", name: "Signature Gold Edition", price: 1199, old: 1699, tag: "Limited",
-    images: ["images/shirt-4.jpg"],
+    info: ["100% premium cotton", "Regular fit", "Full sleeve", "Low shrinkage"]
+  },
+  {
+    id: "MC-004", name: "Signature Gold Edition", price: 1199, old: 1699, tag: "Limited",
+    variants: {
+      "Midnight Black": ["images/shirt-1.jpg"],
+      "Ivory White": ["images/shirt-5.jpg"],
+      "Navy Blue": ["images/shirt-3.jpg"],
+      "Olive Green": ["images/shirt-4.jpg"]
+    },
     desc: "Gold detailing ke saath limited edition shirt.",
-    info: ["Premium fabric", "Gold button detail", "Slim fit", "Limited stock"] },
-  { id: "MC-005", name: "Oxford Everyday Shirt", price: 849, old: 1199, tag: "",
-    images: ["images/shirt-5.jpg"],
+    info: ["Premium fabric", "Gold button detail", "Slim fit", "Limited stock"]
+  },
+  {
+    id: "MC-005", name: "Oxford Everyday Shirt", price: 849, old: 1199, tag: "",
+    variants: {
+      "Midnight Black": ["images/shirt-1.jpg"],
+      "Ivory White": ["images/shirt-2.jpg"],
+      "Navy Blue": ["images/shirt-3.jpg"],
+      "Olive Green": ["images/shirt-4.jpg"]
+    },
     desc: "Oxford weave wala durable shirt, roz pehenne ke liye.",
-    info: ["Oxford cotton", "Regular fit", "Full sleeve", "Durable stitching"] },
-  { id: "MC-006", name: "Urban Half Sleeve", price: 699, old: 999, tag: "Summer",
-    images: ["images/shirt-6.jpg"],
+    info: ["Oxford cotton", "Regular fit", "Full sleeve", "Durable stitching"]
+  },
+  {
+    id: "MC-006", name: "Urban Half Sleeve", price: 699, old: 999, tag: "Summer",
+    variants: {
+      "Midnight Black": ["images/shirt-1.jpg"],
+      "Ivory White": ["images/shirt-2.jpg"],
+      "Navy Blue": ["images/shirt-3.jpg"],
+      "Olive Green": ["images/shirt-4.jpg"]
+    },
     desc: "Garmi ke liye halka aur cool half sleeve shirt.",
-    info: ["Light cotton", "Regular fit", "Half sleeve", "Breathable"] },
-  { id: "MC-007", name: "Linen Touch Shirt", price: 1049, old: 1499, tag: "",
-    images: ["images/shirt-7.jpg"],
+    info: ["Light cotton", "Regular fit", "Half sleeve", "Breathable"]
+  },
+  {
+    id: "MC-007", name: "Linen Touch Shirt", price: 1049, old: 1499, tag: "",
+    variants: {
+      "Midnight Black": ["images/shirt-1.jpg"],
+      "Ivory White": ["images/shirt-2.jpg"],
+      "Navy Blue": ["images/shirt-3.jpg"],
+      "Olive Green": ["images/shirt-4.jpg"]
+    },
     desc: "Linen jaisa feel, par zyada soft aur wrinkle kam.",
-    info: ["Linen-touch fabric", "Relaxed fit", "Full sleeve", "Lightweight"] },
-  { id: "MC-008", name: "Party Wear Shirt", price: 1299, old: 1799, tag: "Trending",
-    images: ["images/shirt-8.jpg"],
+    info: ["Linen-touch fabric", "Relaxed fit", "Full sleeve", "Lightweight"]
+  },
+  {
+    id: "MC-008", name: "Party Wear Shirt", price: 1299, old: 1799, tag: "Trending",
+    variants: {
+      "Midnight Black": ["images/shirt-1.jpg"],
+      "Ivory White": ["images/shirt-2.jpg"],
+      "Navy Blue": ["images/shirt-3.jpg"],
+      "Olive Green": ["images/shirt-4.jpg"]
+    },
     desc: "Parties aur functions ke liye stylish shirt.",
-    info: ["Premium fabric", "Slim fit", "Full sleeve", "Smooth finish"] }
+    info: ["Premium fabric", "Slim fit", "Full sleeve", "Smooth finish"]
+  }
 ];
 
 /* ⚠️ Ye sample reviews hain. Launch se pehle apne asli customers ke reviews daalo. */
 const TESTIMONIALS = [
-  { name: "Rahul S.",  city: "Pune",   stars: 5, text: "Fabric bahut soft hai aur fitting ekdam perfect. WhatsApp par order karna bahut easy tha." },
-  { name: "Aman K.",   city: "Mumbai", stars: 5, text: "Photo jaisa hi shirt mila. Delivery fast thi aur packing bhi premium." },
+  { name: "Rahul S.", city: "Pune", stars: 5, text: "Fabric bahut soft hai aur fitting ekdam perfect. WhatsApp par order karna bahut easy tha." },
+  { name: "Aman K.", city: "Mumbai", stars: 5, text: "Photo jaisa hi shirt mila. Delivery fast thi aur packing bhi premium." },
   { name: "Siddharth P.", city: "Nashik", stars: 4, text: "Price ke hisaab se quality kaafi achhi hai. Friends ko bhi recommend kiya." }
 ];
 

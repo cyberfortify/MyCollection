@@ -3,7 +3,7 @@ const moreBtn = document.getElementById("moreBtn");
 let expanded = false;
 
 function photo(p) {
-  const src = p.images && p.images[0];
+  const src = p.variants ? Object.values(p.variants)[0][0] : (p.images && p.images[0]);
   return src
     ? `<img src="${src}" alt="${p.name}" loading="lazy" onerror="shirtFallback(this)" />`
     : `<div class="fallback">${shirtSVG(COLORS[0].hex)}</div>`;
@@ -11,6 +11,7 @@ function photo(p) {
 
 function card(p) {
   const off = Math.round((1 - p.price / p.old) * 100);
+  const colors = p.variants ? COLORS.filter(c => p.variants[c.name]) : COLORS;
   return `
   <a class="card" href="product.html?id=${p.id}">
     <div class="card__img">
@@ -20,7 +21,7 @@ function card(p) {
     </div>
     <div class="card__body">
       <h3>${p.name}</h3>
-      <div class="dots">${COLORS.map(c => `<i style="background:${c.hex}"></i>`).join("")}</div>
+      <div class="dots">${colors.map(c => `<i style="background:${c.hex}"></i>`).join("")}</div>
       <div class="price"><b>${CONFIG.CURRENCY}${p.price}</b><s>${CONFIG.CURRENCY}${p.old}</s></div>
     </div>
   </a>`;

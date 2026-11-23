@@ -1,26 +1,45 @@
 const id = new URLSearchParams(location.search).get("id");
 const p = PRODUCTS.find(x => x.id === id) || PRODUCTS[0];
-const state = { color: COLORS[0], size: null, qty: 1, img: p.images && p.images[0] };
 const money = n => CONFIG.CURRENCY + n.toLocaleString("en-IN");
 const $ = s => document.querySelector(s);
+
+/* is shirt ke available colors aur unki photos */
+let colorList = p.variants ? COLORS.filter(c => p.variants[c.name]) : COLORS;
+if (!colorList.length) colorList = COLORS;
+const imagesFor = c => (p.variants && p.variants[c.name]) || p.images || [];
+
+const state = { color: colorList[0], size: null, qty: 1, img: null };
+state.img = imagesFor(state.color)[0];
 
 document.title = p.name + " | My Collection";
 
 function mainImage() {
   return state.img
-    ? `<img src="${state.img}" alt="${p.name}" onerror="shirtFallback(this)" />`
+    ? `<img src="${state.img}" alt="${p.name} - ${state.color.name}" onerror="shirtFallback(this)" />`
     : `<div class="fallback">${shirtSVG(state.color.hex)}</div>`;
 }
 
-const thumbs = (p.images || []).length > 1
-  ? `<div class="thumbs">${p.images.map((s, i) =>
-      `<button class="thumb ${i === 0 ? "active" : ""}" data-src="${s}"><img src="${s}" alt="" onerror="this.parentElement.remove()" /></button>`).join("")}</div>`
-  : "";
+function thumbsHTML() {
+  const list = imagesFor(state.color);
+  if (list.length < 2) return "";
+  return list.map(s => `
+    <button class="thumb ${s === state.img ? "active" : ""}" data-src="${s}">
+      <img src="${s}" alt="" onerror="this.parentElement.remove()" />
+    </button>`).join("");
+}
+
+function bindThumbs() {
+  document.querySelectorAll(".thumb").forEach(t => t.onclick = () => {
+    state.img = t.dataset.src;
+    $("#pImg").innerHTML = mainImage();
+    document.querySelectorAll(".thumb").forEach(x => x.classList.toggle("active", x === t));
+  });
+}
 
 $("#pdp").innerHTML = `
   <div class="pdp__media">
     <div class="pdp__img" id="pImg">${mainImage()}</div>
-    ${thumbs}
+    <div class="thumbs" id="thumbs">${thumbsHTML()}</div>
   </div>
   <div class="pdp__info">
     ${p.tag ? `<span class="tag tag--static">${p.tag}</span>` : ""}
@@ -30,8 +49,8 @@ $("#pdp").innerHTML = `
     <p class="muted">${p.desc}</p>
 
     <p class="label">Color: <b id="cName">${state.color.name}</b></p>
-    <div class="swatches">${COLORS.map((c, i) =>
-      `<button class="swatch ${i === 0 ? "active" : ""}" data-i="${i}" style="background:${c.hex}" aria-label="${c.name}"></button>`).join("")}</div>
+    <div class="swatches">${colorList.map((c, i) =>
+      `<button class="swatch ${i === 0 ? "active" : ""}" data-i="${i}" style="background:${c.hex}" aria-label="${c.name}" title="${c.name}"></button>`).join("")}</div>
 
     <p class="label">Size</p>
     <div class="sizes">${SIZES.map(s => `<button class="size" data-s="${s}">${s}</button>`).join("")}</div>
@@ -45,24 +64,22 @@ $("#pdp").innerHTML = `
     <ul class="details">${p.info.map(i => `<li>${i}</li>`).join("")}</ul>
   </div>`;
 
-/* gallery */
-document.querySelectorAll(".thumb").forEach(t => t.onclick = () => {
-  document.querySelectorAll(".thumb").forEach(x => x.classList.remove("active"));
-  t.classList.add("active");
-  state.img = t.dataset.src;
-  $("#pImg").innerHTML = mainImage();
-});
+bindThumbs();
 
-/* color */
+/* color click → photo + thumbnails badal jaye */
 document.querySelectorAll(".swatch").forEach(b => b.onclick = () => {
   document.querySelectorAll(".swatch").forEach(x => x.classList.remove("active"));
   b.classList.add("active");
-  state.color = COLORS[b.dataset.i];
+  state.color = colorList[b.dataset.i];
+  state.img = imagesFor(state.color)[0];
   $("#cName").textContent = state.color.name;
-  if (p.colorImages && p.colorImages[state.color.name]) state.img = p.colorImages[state.color.name];
   $("#pImg").innerHTML = mainImage();
+  $("#thumbs").innerHTML = thumbsHTML();
+  bindThumbs();
   updateSummary();
 });
+
+/* size, qty */
 
 /* size, qty */
 document.querySelectorAll(".size").forEach(b => b.onclick = () => {
